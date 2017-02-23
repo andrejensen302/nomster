@@ -26,3 +26,9 @@ body {
 .navbar {
     background: image_url('cartographer.png');
 }
+
+.navbar-inverse .navbar-brand { 
+ color: #E3E85A;
+ font-family: 'quicksandbold', sans-serif;
+ font-size: 26px;
+}
