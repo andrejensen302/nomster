@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
     def index
-        @places = Place.all #all the places in our database are stufed into a variable called @places.
+        @places = Place.order(:name).page params[:page]
     end
     
     def new
