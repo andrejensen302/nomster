@@ -45,7 +45,7 @@
 
 <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
  <%= f.input :message %>
- <%= f.input :rating %>
+ <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
  <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
  <% end %>
  
@@ -54,10 +54,16 @@
  <% @place.comments.each do |comment| %>
      <div>
          <blockquote>
-            <b><%= comment.rating %></b>
+             <% if comment.humanized_rating.present? %>
+            <b><%= comment.humanized_rating %></b>
+            <% end %>
              <%= comment.message %>
             <small><%= comment.user.email %></small>
          </blockquote>
      </div>
      <% end %>
      
+<% if false %>
+This code will use a loop to grab all the comments from the database and show them on the places page along with the rating, message and email address of the user who created it.
+"humanized_rating" shows the rating along with the comment.
+<% end %>
