@@ -42,11 +42,6 @@
     </div>
 
 <div class="clear"></div>
- 
- <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Add a comment
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,14 +66,25 @@
         </div>
       </div>
     </div>
+    
 <% if false %>
 Above code creates a message and rating field within the modal.
 <% end %>
  
- <h1>Comments</h1>
+ <div class="col-10 offset-1">
+ <h1 class="float-left">Comments</h1>
+ <!-- Button trigger modal -->
+ <button type="button" class="btn btn-primary btn-md float-right" data-toggle="modal" data-target="#exampleModal">
+     Add a comment
+ </button>
+ </div>
  
+ <div class="clear"></div>
+ 
+ 
+ <div class="row">
  <% @place.comments.each do |comment| %>
-     <div>
+ <div class="col-12 col-sm-6">
          <blockquote>
              <% if comment.humanized_rating.present? %>
             <b><%= comment.humanized_rating %></b>
@@ -88,7 +94,8 @@ Above code creates a message and rating field within the modal.
          </blockquote>
      </div>
      <% end %>
-     
+    </div> 
+    
 <% if false %>
 This code will use a loop to grab all the comments from the database and show them on the places page along with the rating, message and email address of the user who created it.
 "humanized_rating" shows the rating along with the comment.
