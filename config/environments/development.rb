@@ -8,7 +8,7 @@ Rails.application.configure do
     authentification: "plain",
     enable_starttls_auto: true,
     user_name: ENV['GMAIL_ADDRESS'],
-    password: ENV['GMAIL-PASSWORD']
+    password: ENV['GMAIL_PASSWORD']
   }
   
   config.action_mailer.default_url_options = { host: 'https://firehose-webdev-ajensen0201.c9users.io/' }
