@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
     belongs_to :user
     belongs_to :place
+    after_create :send_comment_email #sends automated email after comment has been created
     
     RATINGS = {
      'one star': '1_star',
@@ -14,4 +15,9 @@ class Comment < ApplicationRecord
         RATINGS.invert[self.rating]
     end
     #allow us to call a humanized_rating from every single comment we look up.
+
+
+    def send_comment_email #active callback - automatically send outs e-mail when a user puts in a comment
+        NotificationMailer.comment_added(self).deliver
+    end
 end
