@@ -8,7 +8,7 @@ class Place < ApplicationRecord
     after_validation :geocode
     
     validates :name, length: {minimum: 3}, presence: true#validate name field has minimum of 3 char
-    validates :address, :comments, presence: true #validate presence of address & comments
+    validates :address, presence: true #validate presence of address
    
     
 end
