@@ -1,7 +1,7 @@
 class Place < ApplicationRecord
     belongs_to :user #a place belongs to a user
     has_many :comments #a place can have many comments
-    has_many :photo #a place can have many photos
+    has_many :photos #a place can have many photos
     
     
     geocoded_by :address
