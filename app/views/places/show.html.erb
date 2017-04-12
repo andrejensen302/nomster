@@ -4,6 +4,11 @@
     <br/><br/>
     <p><%= @place.description %></p>
     
+    <% @place.photos.each do |photo| %>
+  <%= image_tag photo.picture %>
+  <%= photo.caption %>
+<% end %>
+    
     <% if @place.latitude.present? && @place.longitude.present? %>
     
     <script>
@@ -75,6 +80,7 @@ Above code creates a message and rating field within the modal.
  <div class="col-10 offset-1">
  <h1 class="float-left">Comments</h1>
  
+ 
  <!-- Button trigger comments modal -->
  <button type="button" class="btn btn-primary btn-md float-right" data-toggle="modal" data-target="#exampleModal">
      Add a comment
@@ -87,20 +93,21 @@ Above code creates a message and rating field within the modal.
  
      <!-- Modal Photos -->
 
-    <div class="modal fade" id="PhotoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="PhotoModal" tabindex="-1" role="dialog" aria-labelledby="PhotoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h5 class="modal-title" id="exampleModalLabel">Add a photo</h5>
+        <h5 class="modal-title" id="PhotoModalLabel">Add a photo</h5>
       </div>
       <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
       <div class="modal-body">
             <%= f.input :picture %>
             <%= f.input :caption %>
             </div>
+            
             <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <%= f.submit "Add a Photo", class: 'btn btn-info' %>
