@@ -4,11 +4,6 @@
     <br/><br/>
     <p><%= @place.description %></p>
     
-    <% @place.photos.each do |photo| %>
-  <%= image_tag photo.picture %>
-  <%= photo.caption %>
-<% end %>
-    
     <% if @place.latitude.present? && @place.longitude.present? %>
     
     <script>
@@ -132,8 +127,15 @@ Above code creates a message and rating field within the modal.
  <div class="clear"></div>
  
     <!-- End Photos button modal -->
- 
- 
+    
+    <!-- User photo uploads -->
+    <div class="booyah-box">
+     <% @place.photos.each do |photo| %>
+  <%= image_tag photo.picture, class: 'image-sizing' %>
+  <%= photo.caption %>
+<% end %>
+  </div>
+    <!-- End user photo uploads -->
  
  <div class="row">
  <% @place.comments.each do |comment| %>
