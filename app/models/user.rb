@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :places #a user can create many places
   has_many :comments #a user can create many comments
-  has_many :photos #a user can upload many photos
 end
