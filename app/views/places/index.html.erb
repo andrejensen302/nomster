@@ -35,12 +35,6 @@
     <small><%= place.user.email %></small>
     <% end %>
     
-    <%if place.photos.present? %>
-    <div class="col-12">
-      <%= image_tag place.photos.last.picture, class:'small-image' %>
-    </div>
-         <% end %>
-    
      <!-- will run code below if a comment exists -->
     
     <% if place.comments.present? %>
