@@ -94,9 +94,11 @@ blockquote p {
 }
 
 .image-sizing {
-    min-width: 400px;
-    min-height: 400px;
-    max-width: 400px;
-    max-height: 400px;
-    
+    width: 33%;
+    float: center;
+    min-height: 300px;
+    max-height: 300px;
+    border: 2px solid #4d4dff;
+    display: inline;
+    margin: 5px;
 }

@@ -73,7 +73,7 @@ Above code creates a message and rating field within the modal.
 
  
  <div class="col-10 offset-1">
- <h1 class="float-left">Comments</h1>
+ <h1 class="float-left">Comments & User Photos</h1>
  
  
  <!-- Button trigger comments modal -->
@@ -129,12 +129,14 @@ Above code creates a message and rating field within the modal.
     <!-- End Photos button modal -->
     
     <!-- User photo uploads -->
-    <div class="booyah-box">
-     <% @place.photos.each do |photo| %>
-  <%= image_tag photo.picture, class: 'image-sizing' %>
-  <%= photo.caption %>
+    <div class="container-fluid">
+      <div class="row">
+    <% @place.photos.each do |photo| %>
+     <%= image_tag photo.picture, class: 'image-sizing' %>
+  <figcaption class="figure-caption"><%= photo.caption %></figcaption>
 <% end %>
-  </div>
+    </div>
+    </div>
     <!-- End user photo uploads -->
  
  <div class="row">
